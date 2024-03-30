@@ -201,7 +201,7 @@ const RecipeDetails = function ({
 
               <button className="flex bg-yellow text-brown-light bg-opacity-30 hover:bg-opacity-100 hover:shadow-xl h-10 px-6 items-center rounded-xl">
                 <p className="flex items-center">
-                  <FaPrint/>
+                  <FaPrint />
                   <p className="ml-2" onClick={() => printRecipe()}>
                     Print Recipe
                   </p>
@@ -228,7 +228,9 @@ const RecipeDetails = function ({
             </div>
 
             <section>
-              <p className="text-3xl font-extrabold mt-12 mb-8 text-brown-dark">Ingredients</p>
+              <p className="text-3xl font-extrabold mt-12 mb-8 text-brown-dark">
+                Ingredients
+              </p>
 
               <div className="text-lg">
                 {recipe.ingredients.map((ingredient) => (
@@ -240,7 +242,9 @@ const RecipeDetails = function ({
                 ))}
               </div>
 
-              <p className="text-3xl font-extrabold mt-12 mb-8 text-brown-dark">Instructions</p>
+              <p className="text-3xl font-extrabold mt-12 mb-8 text-brown-dark">
+                Instructions
+              </p>
 
               <div className="text-lg">
                 <ol className="list-decimal px-4">

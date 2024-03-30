@@ -28,7 +28,7 @@ const ReviewList = ({ recipeId }) => {
         values,
         {
           headers: { token: token },
-        }
+        },
       );
       setUpdated((prev) => ++prev);
       resetForm();
@@ -41,7 +41,7 @@ const ReviewList = ({ recipeId }) => {
     const fetchReviews = async function () {
       try {
         const reviewsResponse = await axios.get(
-          `http://localhost:8080/api/reviews/${recipeId}`
+          `http://localhost:8080/api/reviews/${recipeId}`,
         );
 
         // Format TIMESTAMP to display
@@ -49,25 +49,25 @@ const ReviewList = ({ recipeId }) => {
           reviewsResponse.data.map(async (review) => {
             try {
               const userResponse = await axios.get(
-                `http://localhost:8080/api/reviews/users/${review.user_id}`
+                `http://localhost:8080/api/reviews/users/${review.user_id}`,
               );
               const username = userResponse.data;
               return {
                 ...review,
                 created_at: format(
                   new Date(review.created_at),
-                  "MMMM dd, yyyy - hh:mm aa"
+                  "MMMM dd, yyyy - hh:mm aa",
                 ),
                 username: username,
               };
             } catch (error) {
               console.error(
                 "Error fetching username for review:",
-                error.message
+                error.message,
               );
               return review; // If error occurs, return review without username
             }
-          })
+          }),
         );
 
         setRecipeReviews(reviewsData);
@@ -85,7 +85,7 @@ const ReviewList = ({ recipeId }) => {
         `http://localhost:8080/api/reviews/${review_id}/delete`,
         {
           headers: { token: token },
-        }
+        },
       );
       console.log("Res from delete fucntion", res.data);
       console.log("Accepted");

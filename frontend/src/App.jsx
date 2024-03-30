@@ -45,10 +45,7 @@ function App() {
     <>
       <Fragment>
         <Router>
-          <NavBar
-            username={username}
-            setSelected={setSelected}
-          />
+          <NavBar username={username} setSelected={setSelected} />
           <Routes>
             <Route
               path="/"
@@ -73,7 +70,9 @@ function App() {
             <Route path="/food-trivia" element={<FoodTrivia />} />
             <Route path="/trivia-result" element={<TriviaResult />} />
             <Route path="/my-favs" element={<UserFavs username={username} />} />
-            <Route path="/my-recipes" element={<UserRecipes username={username} />}
+            <Route
+              path="/my-recipes"
+              element={<UserRecipes username={username} />}
             />
           </Routes>
           <Footer />

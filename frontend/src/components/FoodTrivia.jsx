@@ -1,32 +1,25 @@
-import React, {useState, useContext} from "react";
+import React, { useState, useContext } from "react";
 import { PiArrowFatLinesDownFill } from "react-icons/pi";
 import TriviaGame from "./TriviaGame";
-import { AppDataContext } from '../contexts/AppDataContext';
-
-
-
+import { AppDataContext } from "../contexts/AppDataContext";
 
 export default function FoodTrivia() {
-   const {  fetchRandomTrivia,  setFoodTrivia, setUnknownCount, setKnownCount } = useContext(AppDataContext);
-  
+  const { fetchRandomTrivia, setFoodTrivia, setUnknownCount, setKnownCount } =
+    useContext(AppDataContext);
+
   const [startClicked, setStartClicked] = useState(false);
 
   const handleStartClick = () => {
-    
     setFoodTrivia(null);
     setUnknownCount(0);
     setKnownCount(0);
     setStartClicked(true);
     fetchRandomTrivia();
-    
   };
-
-
 
   return (
     <>
       {!startClicked ? (
-        
         <div className="flex flex-col items-center font-bold text-amber-700 text-center relative">
           <img
             src={require("../Images/simmering.jpg")}
@@ -53,7 +46,7 @@ export default function FoodTrivia() {
 
             <button
               type="button"
-              onClick={()=> handleStartClick()}
+              onClick={() => handleStartClick()}
               className="bg-green-700 hover:bg-green-800 text-white font-bold py-5 px-16 rounded-md text-3xl"
             >
               START
@@ -61,7 +54,7 @@ export default function FoodTrivia() {
           </div>
         </div>
       ) : (
-          <TriviaGame />
+        <TriviaGame />
       )}
     </>
   );

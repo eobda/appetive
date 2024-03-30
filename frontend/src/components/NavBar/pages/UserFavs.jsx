@@ -3,7 +3,7 @@ import FavList from "../FavList";
 import AuthenticationError from "../../AuthenticationError";
 import useAuthentication from "../../../hooks/useAuthentication";
 
-function UserFavs( {username} ) {
+function UserFavs({ username }) {
   const { isAuthenticated } = useAuthentication();
 
   return (

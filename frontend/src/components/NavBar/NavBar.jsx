@@ -12,12 +12,7 @@ import {
   NavDropdown,
   SearchBtnLink,
 } from "./NavBarElements";
-import {
-  FaCaretDown,
-  FaHome,
-  FaUtensils,
-  FaHeart,
-} from "react-icons/fa";
+import { FaCaretDown, FaHome, FaUtensils, FaHeart } from "react-icons/fa";
 import useAuthentication from "../../hooks/useAuthentication";
 import { AppDataContext } from "../../contexts/AppDataContext";
 import { useNavigate } from "react-router";

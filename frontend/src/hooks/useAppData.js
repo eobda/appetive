@@ -53,7 +53,7 @@ const useAppData = () => {
         response = await axios.request(options);
       } else {
         response = await axios.get(
-          `http://localhost:8080/api/recipes/${recipeId}`
+          `http://localhost:8080/api/recipes/${recipeId}`,
         );
       }
 
@@ -122,7 +122,7 @@ const useAppData = () => {
 
     // Remove keys with empty values
     const filteredOptions = Object.fromEntries(
-      Object.entries(selectedOptions).filter(([key, value]) => value !== "")
+      Object.entries(selectedOptions).filter(([key, value]) => value !== ""),
     );
     console.log("Filter: ", filteredOptions);
 
@@ -131,7 +131,7 @@ const useAppData = () => {
       const dbResponse = await axios.post(
         "http://localhost:8080/api/recipes/search",
         null,
-        { params: filteredOptions }
+        { params: filteredOptions },
       );
 
       const searchResponse = dbResponse.data;

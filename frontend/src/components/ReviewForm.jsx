@@ -15,7 +15,7 @@ function ReviewForm({ handleSubmitReviewForm }) {
       <div>
         <FaExclamationCircle className="inline-block mr-1" /> Review can't be
         blank
-      </div>
+      </div>,
     ),
   });
 

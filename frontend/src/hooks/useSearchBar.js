@@ -9,7 +9,4 @@ export function useSearchBar() {
   };
 
   return { showSearchBar, toggleSearchBar };
-
 }
-
-

@@ -20,26 +20,26 @@ function Register({ setAuth }) {
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Name is required
-        </div>
+        </div>,
       ),
       email: Yup.string()
         .email(
           <div>
             <FaExclamationCircle className="inline-block mr-1" />
             Invalid email address
-          </div>
+          </div>,
         )
         .required(
           <div>
             <FaExclamationCircle className="inline-block mr-1" />
             Email is required
-          </div>
+          </div>,
         ),
       password: Yup.string().required(
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Password is required
-        </div>
+        </div>,
       ),
     }),
 
@@ -47,7 +47,7 @@ function Register({ setAuth }) {
       try {
         const response = await axios.post(
           `http://localhost:8080/auth/register`,
-          values
+          values,
         );
 
         //Save token in localStorge

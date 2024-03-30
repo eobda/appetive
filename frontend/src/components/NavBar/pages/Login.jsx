@@ -21,19 +21,19 @@ function Login({ setAuth }) {
           <div>
             <FaExclamationCircle className="inline-block mr-1" />
             Invalid email address
-          </div>
+          </div>,
         )
         .required(
           <div>
             <FaExclamationCircle className="inline-block mr-1" />
             Email is required
-          </div>
+          </div>,
         ),
       password: Yup.string().required(
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Password is required
-        </div>
+        </div>,
       ),
     }),
 
@@ -41,7 +41,7 @@ function Login({ setAuth }) {
       try {
         const response = await axios.post(
           `http://localhost:8080/auth/login`,
-          values
+          values,
         );
 
         //Save token to localStorage
@@ -54,14 +54,14 @@ function Login({ setAuth }) {
             <div>
               <FaExclamationCircle className="inline-block mr-1" />
               Invalid email or password. Please try again.
-            </div>
+            </div>,
           );
         } else {
           setError(
             <div>
               <FaExclamationCircle className="inline-block mr-1" />
               An error occured. Please try again later.
-            </div>
+            </div>,
           );
         }
         console.error(error.message);

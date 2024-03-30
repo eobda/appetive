@@ -3,7 +3,7 @@ import AuthenticationError from "../../AuthenticationError";
 import useAuthentication from "../../../hooks/useAuthentication";
 import UserRecipesList from "../UserRecipesList";
 
-function UserRecipes( {username} ) {
+function UserRecipes({ username }) {
   const { isAuthenticated } = useAuthentication();
 
   return (

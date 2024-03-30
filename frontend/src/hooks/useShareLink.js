@@ -7,7 +7,6 @@ export default function useShareLink() {
   async function generateShareLink(recipeId) {
     const shareableLink = `http://localhost:8080/api/recipes/${recipeId}`;
     setShareLink(shareableLink);
-    
 
     // Check if the Web Share API is supported by the browser
     if (typeof navigator !== "undefined") {
@@ -28,7 +27,6 @@ export default function useShareLink() {
           navigator.clipboard.writeText(shareableLink);
           console.log("Link copied to clipboard");
           setCopySuccess(true);
-
         } catch (error) {
           console.error("Error copying link to clipboard:", error);
           setCopySuccess(false);

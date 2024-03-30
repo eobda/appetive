@@ -14,7 +14,7 @@ function About() {
           the diversity and creativity of home cooking. As food lovers
           ourselves, we understand the power of a shared meal and the memories
           it creates. That's why we built Appetive as a hub for connecting,
-          inspiring, and celebrating the art of cooking. 
+          inspiring, and celebrating the art of cooking.
         </div>
         <img
           src={require("../../../Images/About page/about1.png")}

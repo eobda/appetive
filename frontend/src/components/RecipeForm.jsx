@@ -104,45 +104,45 @@ function RecipeForm() {
       <div>
         <FaExclamationCircle className="inline-block mr-1" />
         Title is required
-      </div>
+      </div>,
     ),
     prep_time: Yup.number()
       .positive(
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Prep time must be greater than 0
-        </div>
+        </div>,
       )
       .required(
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Prep time is required
-        </div>
+        </div>,
       ),
     number_of_servings: Yup.number()
       .positive(
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Servings must be greater than 0
-        </div>
+        </div>,
       )
       .required(
         <div>
           <FaExclamationCircle className="inline-block mr-1" />
           Number of servings is required
-        </div>
+        </div>,
       ),
     instructions: Yup.string().required(
       <div>
         <FaExclamationCircle className="inline-block mr-1" />
         Instructions are required
-      </div>
+      </div>,
     ),
     image: Yup.string().required(
       <div>
         <FaExclamationCircle className="inline-block mr-1" />
         Image is required
-      </div>
+      </div>,
     ),
   });
 
@@ -160,7 +160,6 @@ function RecipeForm() {
             </div>
 
             <div className="max-w-screen-md mx-auto">
-              
               <Formik
                 initialValues={{
                   ingredients: [emptyIngredient],

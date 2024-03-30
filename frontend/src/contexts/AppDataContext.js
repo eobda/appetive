@@ -6,9 +6,7 @@ import { useSearchBar } from "../hooks/useSearchBar";
 
 export const AppDataContext = createContext();
 
- 
 export const AppDataProvider = ({ children }) => {
-
   //Destructure the useApplicationData function
   const {
     state,
@@ -28,11 +26,7 @@ export const AppDataProvider = ({ children }) => {
     setKnownCount,
   } = useFoodTrivia();
 
-  const {
-    showSearchBar,
-    toggleSearchBar
-  } = useSearchBar();
-  
+  const { showSearchBar, toggleSearchBar } = useSearchBar();
 
   return (
     <AppDataContext.Provider

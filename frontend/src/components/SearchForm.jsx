@@ -105,7 +105,7 @@ export default function SearchForm() {
     optionsArray,
     showBackButton,
     handleChange,
-    values
+    values,
   ) => {
     return (
       <>
@@ -165,7 +165,7 @@ export default function SearchForm() {
     optionsArray,
     showBackButton,
     handleChange,
-    values
+    values,
   ) => {
     return (
       <>
@@ -247,7 +247,7 @@ export default function SearchForm() {
                 cuisine,
                 false,
                 handleChange,
-                values
+                values,
               )}
             </>
           )}
@@ -262,7 +262,7 @@ export default function SearchForm() {
                 type,
                 true,
                 handleChange,
-                values
+                values,
               )}
             </>
           )}
@@ -277,7 +277,7 @@ export default function SearchForm() {
                 diet,
                 true,
                 handleChange,
-                values
+                values,
               )}
             </>
           )}
@@ -292,7 +292,7 @@ export default function SearchForm() {
                 intolerances,
                 true,
                 handleChange,
-                values
+                values,
               )}
             </>
           )}

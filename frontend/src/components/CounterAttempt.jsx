@@ -20,7 +20,7 @@ function CounterAttempt({ recipeId, counter_attempt }) {
           `http://localhost:8080/api/recipes/userRecipeData/${recipeId}`,
           {
             headers: { token: jwtToken },
-          }
+          },
         );
         const userRecipeData = response.data;
         setToggled(userRecipeData.has_tried);
@@ -40,7 +40,7 @@ function CounterAttempt({ recipeId, counter_attempt }) {
         null,
         {
           headers: { token: jwtToken },
-        }
+        },
       );
       const results = res.data;
       setToggled((prev) => !prev);
