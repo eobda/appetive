@@ -50,7 +50,7 @@ const deleteReview = async function (review_id) {
     // Check if the review was deleted successfully
     if (!deletedReview) {
       throw new Error(
-        "Review not found or you don't have permission to delete it."
+        "Review not found or you don't have permission to delete it.",
       );
     }
 

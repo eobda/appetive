@@ -94,7 +94,7 @@ const getRecipeById = async function (recipe_id) {
 
     //get meal_type of the recipe by meal_type id
     const meal_type_name = await getMealTypeNameById(
-      recipe.rows[0].meal_type_id
+      recipe.rows[0].meal_type_id,
     );
     console.log(meal_type_name);
     //add meal_type name into recipe object
@@ -102,7 +102,7 @@ const getRecipeById = async function (recipe_id) {
 
     //get intolerance of the recipe by intolerance id
     const intolerance_name = await getIntoleranceNameById(
-      recipe.rows[0].intolerance_id
+      recipe.rows[0].intolerance_id,
     );
     console.log(intolerance_name);
     //add meal_type name into recipe object
@@ -161,7 +161,7 @@ const getRecipeById = async function (recipe_id) {
       ingredient["id"] = ingr.id;
       ingredient["name"] = ingr.name;
       ingredient["amount"] = Number(
-        ingr.measurement.replace(/[^0-9/]/g, "").trim()
+        ingr.measurement.replace(/[^0-9/]/g, "").trim(),
       );
       ingredient["unit"] = ingr.measurement.replace(/[0-9/]/g, "").trim();
 
@@ -254,7 +254,7 @@ const getRecipesBySearchQuery = async function (
   mealType,
   intolerance,
   minCalories,
-  maxCalories
+  maxCalories,
 ) {
   try {
     const results = [];
@@ -264,7 +264,7 @@ const getRecipesBySearchQuery = async function (
     let queryString = "SELECT * FROM recipes WHERE 1 = 1";
     const queryParams = [];
 
-    //Add conditions based on query parameters 
+    //Add conditions based on query parameters
     if (title) {
       queryString += ` AND title ILIKE $${queryParams.length + 1}`;
       queryParams.push(`%${title}%`);
@@ -305,7 +305,7 @@ const getRecipesBySearchQuery = async function (
       } else {
         //get diet_id for each diet value
         const diet_ids = await Promise.all(
-          diet_array.map((d) => getDietByName(d.trim()))
+          diet_array.map((d) => getDietByName(d.trim())),
         );
         console.log(diet_ids);
 
@@ -334,8 +334,8 @@ const getRecipesBySearchQuery = async function (
       } else {
         const intolerance_ids = await Promise.all(
           intolerance_array.map((intolerance) =>
-            getIntoleranceByName(intolerance.trim())
-          )
+            getIntoleranceByName(intolerance.trim()),
+          ),
         );
         console.log(intolerance_ids);
 
@@ -386,24 +386,23 @@ const getRecipesBySearchQuery = async function (
 
 const toggleHasTried = async function (user_id, recipe_id) {
   try {
-    const queryString=`
+    const queryString = `
       UPDATE users_recipes 
       SET has_tried = NOT has_tried 
       WHERE user_id = $1 AND recipe_id = $2 
       RETURNING has_tried
     ;`;
-    const queryParams=[user_id, recipe_id];
+    const queryParams = [user_id, recipe_id];
     const result = await db.query(queryString, queryParams);
     return result.rows[0];
-    
   } catch (error) {
     console.log("Error from toggleHasTried: ", error.message);
     throw error;
   }
-}
+};
 
 const updateCounter = async function (user_id, recipe_id) {
-  try {    
+  try {
     const queryString = `
       UPDATE recipes 
       SET counter_attempt = CASE
@@ -414,50 +413,50 @@ const updateCounter = async function (user_id, recipe_id) {
       WHERE recipes.id = users_recipes.recipe_id AND users_recipes.user_id = $1 AND recipes.id = $2
       RETURNING users_recipes.has_tried, recipes.counter_attempt
     ;`;
-    const queryParams = [user_id, recipe_id]
+    const queryParams = [user_id, recipe_id];
     const result = await db.query(queryString, queryParams);
     return result.rows;
   } catch (error) {
     console.log("Error from updateCounter: ", error.message);
     throw error;
   }
-}
+};
 
-const getUserRecipeData = async function(user_id, recipe_id) {
+const getUserRecipeData = async function (user_id, recipe_id) {
   try {
-    const queryString=`
+    const queryString = `
       SELECT users_recipes.has_tried, recipes.counter_attempt
       FROM recipes 
       JOIN users_recipes 
       ON recipes.id = users_recipes.recipe_id
       WHERE users_recipes.user_id = $1 AND recipes.id = $2
     ;`;
-    const queryParams=[user_id, recipe_id];
-    const getDataResult =  await db.query(queryString, queryParams);
+    const queryParams = [user_id, recipe_id];
+    const getDataResult = await db.query(queryString, queryParams);
     if (getDataResult.rows.length > 0) {
       console.log("getDataResult:", getDataResult.rows);
       return getDataResult.rows[0];
     } else {
       // if relationship does not exist, create and set to FALSE
-      const insertQueryString=`
+      const insertQueryString = `
           INSERT INTO users_recipes(user_id, recipe_id, has_tried)
           VALUES ($1, $2, FALSE)
           RETURNING *
         ;`;
-        const insertQueryParams=[user_id, recipe_id];
-        const insertResult = await db.query(insertQueryString, insertQueryParams);
-        console.log("Insert user_recipe data: ", insertResult.rows[0]);
-        
-        // Fetch the data again after inserting the new record
-        const updatedData = await db.query(queryString, queryParams);
-        console.log("Updated user_recipe data: ", updatedData.rows[0]);
-        return updatedData.rows[0];
-    };
+      const insertQueryParams = [user_id, recipe_id];
+      const insertResult = await db.query(insertQueryString, insertQueryParams);
+      console.log("Insert user_recipe data: ", insertResult.rows[0]);
+
+      // Fetch the data again after inserting the new record
+      const updatedData = await db.query(queryString, queryParams);
+      console.log("Updated user_recipe data: ", updatedData.rows[0]);
+      return updatedData.rows[0];
+    }
   } catch (error) {
     console.log("Error from getUserRecipeData: ", error.message);
     throw error;
   }
-}
+};
 
 module.exports = {
   getRecipes,
@@ -466,5 +465,5 @@ module.exports = {
   getRecipesBySearchQuery,
   toggleHasTried,
   updateCounter,
-  getUserRecipeData
+  getUserRecipeData,
 };

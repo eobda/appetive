@@ -32,7 +32,7 @@ router.post("/:id", authorization, async (req, res) => {
       recipeId,
       newReview.rating,
       newReview.review,
-      newReview.user_id
+      newReview.user_id,
     );
     console.log("Review added", result.rows);
     res.status(201).send(newReview);

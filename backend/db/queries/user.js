@@ -15,7 +15,7 @@ const getUserRecipes = async function (userID) {
       return { message: "User has no recipes" };
     }
 
-    return results.rows;    
+    return results.rows;
   } catch (error) {
     console.error("Error in getUserRecipes:", error.message);
     throw error;
@@ -25,23 +25,23 @@ const getUserRecipes = async function (userID) {
 // Get display information for each recipe in array
 const displayUserRecipes = async function (recipeIDs) {
   try {
-  const promises = recipeIDs.map(async (recipeID) => {
-    const recipe = await getRecipeById(recipeID.id);
-    return {
-      id: recipe.id,
-      title: recipe.title,
-      image: recipe.image
-    };
-  });
+    const promises = recipeIDs.map(async (recipeID) => {
+      const recipe = await getRecipeById(recipeID.id);
+      return {
+        id: recipe.id,
+        title: recipe.title,
+        image: recipe.image,
+      };
+    });
 
-  const results = await Promise.all(promises);
-  return results;
-} catch (error) {
-  console.error("Error in displayUserRecipes:", error.message);
-}
+    const results = await Promise.all(promises);
+    return results;
+  } catch (error) {
+    console.error("Error in displayUserRecipes:", error.message);
+  }
 };
 
 module.exports = {
   getUserRecipes,
-  displayUserRecipes
+  displayUserRecipes,
 };

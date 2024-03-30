@@ -15,7 +15,7 @@ const getUserFavs = async function (userID) {
       return { message: "User has no favs" };
     }
 
-    return results.rows; // returns array of objects each with recipe_id key and value 
+    return results.rows; // returns array of objects each with recipe_id key and value
   } catch (error) {
     console.error("Error in getUserFavs:", error.message);
     throw error;
@@ -25,20 +25,20 @@ const getUserFavs = async function (userID) {
 // Get information for each recipe in recipe IDs array
 const displayUserFavs = async function (favIDs) {
   try {
-  const promises = favIDs.map(async (fav) => {
-    const recipe = await getRecipeById(fav.recipe_id);
-    return {
-      id: recipe.id,
-      title: recipe.title,
-      image: recipe.image
-    };
-  });
+    const promises = favIDs.map(async (fav) => {
+      const recipe = await getRecipeById(fav.recipe_id);
+      return {
+        id: recipe.id,
+        title: recipe.title,
+        image: recipe.image,
+      };
+    });
 
-  const results = await Promise.all(promises);
-  return results;
-} catch (error) {
-  console.error("Error in displayUserFavs:", error.message);
-}
+    const results = await Promise.all(promises);
+    return results;
+  } catch (error) {
+    console.error("Error in displayUserFavs:", error.message);
+  }
 };
 
 // query if a logged in user has marked a recipe as fav. if TRUE return TRUE; if FALSE return FALSE
@@ -79,26 +79,26 @@ const toggleIsFav = async function (userID, recipeID) {
     if (updateResult.rows.length > 0) {
       return updateResult.rows[0].is_fav;
     } else {
-    // if relationship does not exist, create and set to TRUE
+      // if relationship does not exist, create and set to TRUE
       const insertQueryString = `
         INSERT INTO users_recipes (user_id, recipe_id, is_fav)
         VALUES ($1, $2, TRUE)
         RETURNING is_fav;
       `;
-      const insertQueryParams= [userID, recipeID];
+      const insertQueryParams = [userID, recipeID];
 
       const insertResult = await db.query(insertQueryString, insertQueryParams);
       return insertResult.rows[0].is_fav;
-    };
+    }
   } catch {
     console.error("Error in toggleIsFav:", error.message);
     throw error;
   }
-}
+};
 
 module.exports = {
   getUserFavs,
   displayUserFavs,
   checkIfFav,
-  toggleIsFav
+  toggleIsFav,
 };

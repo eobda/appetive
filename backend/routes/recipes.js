@@ -37,7 +37,7 @@ router.get("/", async (_req, res) => {
     const dbRecipes = await getRecipes();
 
     //merging results of db and external api
-    const allRecipes = [...dbRecipes, ...apiRecipes ];
+    const allRecipes = [...dbRecipes, ...apiRecipes];
     // console.log(allRecipes);
 
     if (allRecipes.length === 0) {
@@ -130,7 +130,7 @@ router.post("/search", async (req, res) => {
       type,
       intolerances,
       minCalories,
-      maxCalories
+      maxCalories,
     );
     // console.log("dbSearchResponse", dbSearchResponse);
 

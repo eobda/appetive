@@ -1,4 +1,4 @@
-# APPETIVE 
+# APPETIVE
 
 ## Setup
 
@@ -21,6 +21,7 @@ DB_PORT=5432
 ```
 
 ## Generating UUIDs in PostgreSQL
+
 To use `uuid_generate_v4()` in your PostgreSQL database, make sure the `uuid-ossp` extension is installed and enabled. You can install it by running the following SQL command:
 
 ```sql
@@ -30,28 +31,31 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 ## Seeding
 
 To reset the database and seed it with initial data, run the following command:
-``` 
+
+```
 npm run db:reset
 ```
 
-
-Run a the development server with `npm start` in the Host environment. 
+Run a the development server with `npm start` in the Host environment.
 
 - Use the browser to navigate to `http://localhost:8080`.
 
 ## Run The Server
 
 Running the server normally
+
 ```sh
 npm start
 ```
 
 ## Using nodemon
+
 ```sh
 nodemon index.js
 ```
 
 Running the server so it returns an error when saving/deleting for testing the client's error handling capabilities
+
 ```sh
 npm run error
 ```

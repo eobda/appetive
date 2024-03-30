@@ -1,5 +1,5 @@
 const jwt = require("jsonwebtoken");
-require('dotenv').config();
+require("dotenv").config();
 
 function jwtDecoder(token) {
   return jwt.verify(token, process.env.jwtSecret);

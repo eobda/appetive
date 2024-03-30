@@ -179,7 +179,7 @@ const getDietNameById = async function (id) {
   if (id === null) {
     return "none";
   }
-  
+
   try {
     const queryString = `SELECT name FROM diets WHERE id = $1;`;
     const queryParams = [`${id}`];
@@ -219,7 +219,7 @@ const getIntoleranceNameById = async function (id) {
   if (id === null) {
     return "none";
   }
-  
+
   try {
     const queryString = `SELECT name FROM intolerances WHERE id = $1;`;
     const queryParams = [`${id}`];
