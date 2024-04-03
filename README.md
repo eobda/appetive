@@ -4,8 +4,6 @@ A recipe-sharing platform where users can discover, share, and rate recipes they
 
 Originally created by Maddie Lee, Mia Dinh, Rosemary Okere, and Hisban Shiraz.
 
-![Appetive Front Page](docs/appetive_frontpage.png "Appetive Front Page")
-
 ## Tech Stack
 ### Front End
 * React
@@ -14,7 +12,7 @@ Originally created by Maddie Lee, Mia Dinh, Rosemary Okere, and Hisban Shiraz.
 ### Back End
 * Node.js
 * Express
-* PostgreSQL and node-postgres
+* PostgreSQL
 
 ## Setup
 
@@ -35,3 +33,30 @@ Read `backend/readme` for further setup details.
 cd backend
 npm start
 ```
+
+## Screenshots
+
+### Homepage
+
+![Homepage](docs/homepage1.png)
+![Homepage](docs/homepage2.png)
+
+### About Page
+![About page](docs/about-page.png)
+
+### Recipe Detail
+![Reciep Detail](docs/recipe-detail.png)
+![Reciep Detail](docs/recipe-detail1.png)
+![Reciep Detail](docs/review.png)
+
+
+### Adding Recipe Form
+![Adding new recipe form](docs/add-recipe.png)
+
+### My Favorites and My Recipes
+![My favs](docs/my-favs.png)
+![My recipes](docs/my-recipes.png)
+
+### Food Trivia
+![Food Trivia](docs/trivia1.png)
+![Food Trivia](docs/trivia2.png)
