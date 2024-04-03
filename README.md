@@ -6,6 +6,16 @@ Originally created by Maddie Lee, Mia Dinh, Rosemary Okere, and Hisban Shiraz.
 
 ![Appetive Front Page](docs/appetive_frontpage.png "Appetive Front Page")
 
+## Tech Stack
+### Front End
+* React
+* Tailwind CSS
+
+### Back End
+* Node.js
+* Express
+* PostgreSQL and node-postgres
+
 ## Setup
 
 Install dependencies with `npm install` in each respective `/frontend` and `/backend`.
