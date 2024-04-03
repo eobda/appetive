@@ -2,7 +2,9 @@
 # Appetive
 A recipe-sharing platform where users can discover, share, and rate recipes they have tried, providing feedback and recommendations for others. Users can sign up for an account, browse through a collection of recipes, save their favorite recipes, and contribute their recipes to the platform. 
 
+Originally created by Maddie Lee, Mia Dinh, Rosemary Okere, and Hisban Shiraz.
 
+![Appetive Front Page](appetive_frontpage.png "Appetive Front Page")
 
 ## Setup
 
