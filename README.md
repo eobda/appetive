@@ -4,7 +4,7 @@ A recipe-sharing platform where users can discover, share, and rate recipes they
 
 Originally created by Maddie Lee, Mia Dinh, Rosemary Okere, and Hisban Shiraz.
 
-![Appetive Front Page](appetive_frontpage.png "Appetive Front Page")
+![Appetive Front Page](docs/appetive_frontpage.png "Appetive Front Page")
 
 ## Setup
 
