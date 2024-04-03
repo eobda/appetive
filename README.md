@@ -45,10 +45,9 @@ npm start
 ![About page](docs/about-page.png)
 
 ### Recipe Detail
-![Reciep Detail](docs/recipe-detail.png)
-![Reciep Detail](docs/recipe-detail1.png)
-![Reciep Detail](docs/review.png)
-
+![Recipe Detail](docs/recipe-detail.png)
+![Recipe Detail](docs/recipe-detail1.png)
+![Recipe Detail](docs/review.png)
 
 ### Adding Recipe Form
 ![Adding new recipe form](docs/add-recipe.png)
